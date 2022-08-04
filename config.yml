@@ -1,4 +1,3 @@
----
 ##############################################################
 #                _   _                   _____             __ _       
 #     /\        | | | |                 / ____|           / _(_)      
@@ -11,7 +10,7 @@
 ##############################################################
 
 config-author: "hachkingtohach1(DragoVN)"
-config-version: "2.1.3"
+config-version: "2.2.2"
 
 ##############################################################
 # _                                              
@@ -48,6 +47,7 @@ commands:
 messages:
   enable-verbose: '§aYou enabled verbose'
   disable-verbose: '§cYou disabled verbose'
+  player-offline: '§cThis player can leave online or have never existed in the server'
 
 misc:
   config:
@@ -78,6 +78,11 @@ log_file: true
 # Deny Bypass Permission (default: false)
 disable_bypass_permission: false
 
+## Relog time (second)
+# How long after a player is kicked should he be allowed to log in (seconds)
+# You can set -1 to disable this feature
+relog_time: 5
+
 # Server Lag Protection
 # Automatically disables all checks when your server is lagging.
 server_lag_protection:
@@ -103,9 +108,6 @@ checks:
   killaura:
     # Enable this check?
     enable: true
-
-    # Max violations to kick/ban
-    vl_weight: 5
 
     # Limit players can hit to
     reach: 4.31
@@ -133,9 +135,6 @@ checks:
     # Enable this check?
     enable: true
 
-    # Max violations to kick/ban
-    vl_weight: 5
-
     # What should the player's highest CPS be? When the player exceeds this cps, it will be detected        
     max_cps: 15
 
@@ -151,9 +150,6 @@ checks:
   interact:
     # Enable this check?
     enable: true
-
-    # Max violations to kick/ban
-    vl_weight: 5
 
     # Limit the player can reach the block
     reach: 6
@@ -174,9 +170,6 @@ checks:
     # Enable this check?
     enable: true
 
-    # Max violations to kick/ban
-    vl_weight: 5
-
     fly_move_speed: 75       
     normal_move_speed: 63
 
@@ -193,9 +186,6 @@ checks:
     # Enable this check?
     enable: true
 
-    # Max violations to kick/ban
-    vl_weight: 5
-
     check_per_seconds:
       pick_items: 20
       
@@ -210,9 +200,6 @@ checks:
   fly:
     # Enable this check?
     enable: true
-
-    # Max violations to kick/ban
-    vl_weight: 5
     
     check_per_seconds:
       toggle_flight_on_ground: 4   
@@ -229,9 +216,6 @@ checks:
   badpackets:
     # Enable this check?
     enable: true
-
-    # Max violations to kick/ban
-    vl_weight: 5
 
     # Timer check settings
     timer:
