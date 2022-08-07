@@ -190,7 +190,7 @@ checks:
     # Enable this check?
     enable: true
 
-    check_per_second:
+    check_per_second: 
       pick_items: 20
       
     check_per_milliseconds:
