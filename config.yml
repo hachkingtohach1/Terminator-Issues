@@ -1,3 +1,18 @@
+---
+#### Terminator Config - config.yml ####################################################
+#
+# Anti-cheat: KillAura, AutoClick, Fly, Speed, Scaffold, ...
+#
+#  Useful Links:
+#    Discord: https://discord.gg/VR88npH6
+#    Wiki: https://github.com/hachkingtohach1/Terminator-Issues/wiki
+#    Issue Tracker: https://github.com/hachkingtohach1/Terminator-Issues/issues
+#
+#  Anyway, thanks for using Terminator anti-cheat so much!
+#
+#####################################################################################
+
+
 ##############################################################
 #                _   _                   _____             __ _       
 #     /\        | | | |                 / ____|           / _(_)      
@@ -10,7 +25,7 @@
 ##############################################################
 
 config-author: "hachkingtohach1(DragoVN)"
-config-version: "2.2.2"
+config-version: "2.2.5"
 
 ##############################################################
 # _                                              
@@ -112,6 +127,9 @@ checks:
     # Limit players can hit to
     reach: 4.31
 
+    # Speed attack
+    speed_attack: 3.1
+
     # Check if the player shows aiming characteristics similar to aimbot
     aimbot:
       check_aimbot_sync: true
@@ -122,15 +140,15 @@ checks:
       check_aimbot_bad_rotation: true
       check_aimbot_mouse_speed: true
       
-    check_per_seconds:
+    check_per_second:
       attack: 10 
       next_attack: 1  
 
     # Map of violation levels to command
     commands:
-      20: 'terminator notify %player% might be using combat hacks (KillAura)'
-      35: 'terminator notify %player% is using combat hacks (KillAura) #2'
-      45: 'terminator delay 5 terminator kick %player% KillAura'
+      5: 'terminator notify %player% might be using combat hacks (KillAura)'
+      10: 'terminator notify %player% is using combat hacks (KillAura) #2'
+      15: 'terminator delay 2 terminator kick %player% KillAura'
   click:
     # Enable this check?
     enable: true
@@ -138,15 +156,15 @@ checks:
     # What should the player's highest CPS be? When the player exceeds this cps, it will be detected        
     max_cps: 15
 
-    check_per_seconds:        
+    check_per_second:        
       swing: 15
       air: 25 
 
     # Map of violation levels to command
     commands:
-      20: 'terminator notify %player% might be using combat hacks (AutoClick)'
-      35: 'terminator notify %player% is using combat hacks (AutoClick) #2'
-      45: 'terminator delay 5 terminator kick %player% AutoClick'
+      5: 'terminator notify %player% might be using combat hacks (AutoClick)'
+      10: 'terminator notify %player% is using combat hacks (AutoClick) #2'
+      15: 'terminator delay 2 terminator kick %player% AutoClick'
   interact:
     # Enable this check?
     enable: true
@@ -157,36 +175,36 @@ checks:
     # Pitch limits to which players can set blocks
     limit_pitch: 35
 
-    check_per_seconds:
+    check_per_second:
       min_pitch: 30
       max_pitch: 100
 
     # Map of violation levels to command
     commands:
-      20: 'terminator notify %player% might be using interaction hacks (ReachBlock/Scaffold/Etc.)'
-      35: 'terminator notify %player% is using interaction hacks (ReachBlock/Scaffold/Etc.) #2'
-      45: 'terminator delay 5 terminator kick %player% ReachBlock/Scaffold/Etc.'
+      5: 'terminator notify %player% might be using interaction hacks (ReachBlock/Scaffold/Etc.)'
+      10: 'terminator notify %player% is using interaction hacks (ReachBlock/Scaffold/Etc.) #2'
+      15: 'terminator delay 2 terminator kick %player% ReachBlock/Scaffold/Etc.'
   move:
     # Enable this check?
     enable: true
 
-    fly_move_speed: 75       
-    normal_move_speed: 63
+    fly_move_speed: 80       
+    normal_move_speed: 57
 
-    check_per_seconds:
-        send_motion: 22
+    check_per_second:
+        send_motion: 25
         send_movement: 5
     
     # Map of violation levels to command
     commands:
-      20: 'terminator notify %player% might be using movement hacks (Fly/Speed/Etc.)'
-      35: 'terminator notify %player% is using movement hacks (Fly/Speed/Etc.) #2'
-      45: 'terminator delay 5 terminator kick %player% Fly/Speed/Etc.'
+      5: 'terminator notify %player% might be using movement hacks (Fly/Speed/Etc.)'
+      10: 'terminator notify %player% is using movement hacks (Fly/Speed/Etc.) #2'
+      15: 'terminator delay 2 terminator kick %player% Fly/Speed/Etc.'
   inventory:
     # Enable this check?
     enable: true
 
-    check_per_seconds:
+    check_per_second:
       pick_items: 20
       
     check_per_milliseconds:
@@ -194,14 +212,15 @@ checks:
     
     # Map of violation levels to command
     commands:
-      5: 'terminator notify %player% might be using inventory hacks (ChestAura/ChestStealer/Etc.)'
-      7: 'terminator notify %player% is using inventory hacks (ChestAura/ChestStealer/Etc.) #2'
-      10: 'terminator delay 5 terminator kick %player% ChestAura/ChestStealer/Etc.'
+      3: 'terminator notify %player% might be using inventory hacks (ChestAura/ChestStealer/Etc.)'
+      4: 'terminator notify %player% is using inventory hacks (ChestAura/ChestStealer/Etc.) #2'
+      5: 'terminator delay 2 terminator kick %player% ChestAura/ChestStealer/Etc.'
   fly:
     # Enable this check?
     enable: true
     
-    check_per_seconds:
+    check_per_second:
+      toggle_jump_on_ground: 18
       toggle_flight_on_ground: 4   
       toggle_flight_in_the_air: 2
       toggle_up_in_the_air: 1
@@ -210,22 +229,22 @@ checks:
 
     # Map of violation levels to command
     commands:
-      45: 'terminator notify %player% might be using fly hacks (Fly/AirJump/Etc.)'
-      75: 'terminator notify %player% is using fly hacks (Fly/AirJump/Etc.) #2'
-      145: 'terminator delay 5 terminator kick %player% Fly/AirJump/Etc.'
+      5: 'terminator notify %player% might be using fly hacks (Fly/AirJump/Etc.)'
+      10: 'terminator notify %player% is using fly hacks (Fly/AirJump/Etc.) #2'
+      15: 'terminator delay 2 terminator kick %player% Fly/AirJump/Etc.'
   badpackets:
     # Enable this check?
     enable: true
 
     # Timer check settings
     timer:
-      delay: 0.15
-      min_send_packets: 22
-      max_send_packets: 15
+      delay: 20
+      min_send_packets: 25
+      max_send_packets: 20
     
     # Map of violation levels to command
     commands:
-      100: 'terminator notify %player% is sending unusual packets to server (BadPackets) #1'
-      150: 'terminator notify %player% is sending unusual packets to server (BadPackets) #2'
-      240: 'terminator kick %player% Sending Unusual Packets'
+      10: 'terminator notify %player% is sending unusual packets to server (BadPackets) #1'
+      15: 'terminator notify %player% is sending unusual packets to server (BadPackets) #2'
+      20: 'terminator delay 2 terminator kick %player% Sending Unusual Packets'
 ...
