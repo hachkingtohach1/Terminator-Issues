@@ -11,7 +11,7 @@
 ##############################################################
 
 config-author: "hachkingtohach1(DragoVN)"
-config-version: "2.2.5"
+config-version: "2.3.2"
 
 ##############################################################
 # _                                              
@@ -162,7 +162,7 @@ checks:
     limit_pitch: 35
 
     check_per_second:
-      min_pitch: 30
+      min_pitch: 32
       max_pitch: 100
 
     # Map of violation levels to command
@@ -174,8 +174,8 @@ checks:
     # Enable this check?
     enable: true
 
-    fly_move_speed: 80       
-    normal_move_speed: 57
+    fly_move_speed: 87       
+    normal_move_speed: 60
 
     check_per_second:
         send_motion: 25
@@ -190,11 +190,13 @@ checks:
     # Enable this check?
     enable: true
 
-    check_per_second: 
+    time_transaction_per_item: 2.15
+
+    check_per_second:
       pick_items: 20
       
-    check_per_milliseconds:
-      pick_items: 2
+    check_per_millisecond:
+      pick_items: 1
     
     # Map of violation levels to command
     commands:
@@ -206,7 +208,7 @@ checks:
     enable: true
     
     check_per_second:
-      toggle_jump_on_ground: 18
+      toggle_jump_on_ground: 19
       toggle_flight_on_ground: 4   
       toggle_flight_in_the_air: 2
       toggle_up_in_the_air: 1
@@ -224,9 +226,13 @@ checks:
 
     # Timer check settings
     timer:
-      delay: 20
+      delay: 24
       min_send_packets: 25
       max_send_packets: 20
+    
+    # Scaffold settings
+    scaffold:
+      min_update_place_block: 6 
     
     # Map of violation levels to command
     commands:
