@@ -11,7 +11,7 @@
 ##############################################################
 
 config-author: "hachkingtohach1(DragoVN)"
-config-version: "2.3.2"
+config-version: "2.5.8"
 
 ##############################################################
 # _                                              
@@ -25,7 +25,7 @@ config-version: "2.3.2"
 ##############################################################
 
 # You can define the message prefix here
-prefix: '§7[§cTerminator§7]'
+prefix: '§l§cTerminator §7>'
 
 # Define the announcement message after the player is kicked out by anti-cheating
 kick-format: 'player %player% was kicked because of cheating!'
@@ -35,7 +35,7 @@ kick-broadcast: true
 
 # Define the format of the verbose message
 # Verbose message just working when player in server is running Terminator
-verbose-format: '§7%player% failed §c%check% §7check §8| §7%message% §8| §7vl:%vl% ping:%ping% tps:%tps%'
+verbose-format: '§r§f%player% §7failed §f%friendlyname% %subtype% §7VL[§c%vl%§7] PING[§c%ping%§7] TPS[§c%tps%§7]'
 
 # Define Commands description
 commands:
@@ -53,7 +53,12 @@ messages:
 misc:
   config:
     author: '§bConfig by §a%author-config%'
-    version: '§bConfig version §a%version-config%'          
+    version: '§bConfig version §a%version-config%'   
+  update:
+    start-checking: 'Start checking update....'
+    updater: '§a> Terminator Updater:'
+    has-update: '§cTerminator has an update: §f%latest%  §ccurrent version: §2%current%'
+    latest: '§aYou are using the latest version of Terminator-AntiCheat <3'  
 
 ##############################################################
 #   _____      _   _   _                 
@@ -72,17 +77,12 @@ check_update: true
 # PocketMine API (3/4/5) (default: 4)
 pocketmine_api: 4
 
-# Log Violations (default: true)
+# Log Violations (default: false)
 # Logs all violations to a file. Files can be found in /plugin_data/Terminator/logs
-log_file: true
+log_file: false
 
 # Deny Bypass Permission (default: false)
 disable_bypass_permission: false
-
-## Relog time (second)
-# How long after a player is kicked should he be allowed to log in (seconds)
-# You can set -1 to disable this feature
-relog_time: 5
 
 # Server Lag Protection
 # Automatically disables all checks when your server is lagging.
@@ -110,133 +110,242 @@ checks:
     # Enable this check?
     enable: true
 
-    # Limit players can hit to
-    reach: 4.31
+    AA: 
+      enable: true
+      autoban: false
 
-    # Speed attack
-    speed_attack: 3.1
+    AB: 
+      enable: true
+      autoban: false
 
-    # Check if the player shows aiming characteristics similar to aimbot
-    aimbot:
-      check_aimbot_sync: true
-      check_aimbot_shake: true
-      check_aimbot_snap: true
-      check_aimbot_sensitivity: true
-      check_aimbot_acceleration: true
-      check_aimbot_bad_rotation: true
-      check_aimbot_mouse_speed: true
-      
-    check_per_second:
-      attack: 10 
-      next_attack: 1  
+    AMA: 
+      enable: true
+      autoban: false
 
-    # Map of violation levels to command
+    AMB: 
+      enable: true
+      autoban: false
+
+    AMC: 
+      enable: true
+      autoban: false
+
+    AMD: 
+      enable: true
+      autoban: false
+
+    AME: 
+      enable: true
+      autoban: false
+
+    AMF: 
+      enable: true
+      autoban: false
+
+    AMG: 
+      enable: true
+      autoban: false
+
+    AMH: 
+      enable: true
+      autoban: false
+
+    KA: 
+      enable: true
+      autoban: false
+
+    KB: 
+      enable: true
+      autoban: false
+
+    KC: 
+      enable: true
+      autoban: false
+
+    KD: 
+      enable: true
+      autoban: false
+
+    KE: 
+      enable: true
+      autoban: false
+
+    KF: 
+      enable: true
+      autoban: false
+
+    KG: 
+      enable: true
+      autoban: false
+
+    KH: 
+      enable: true
+      autoban: false
+
+    KI: 
+      enable: true
+      autoban: false
+
+    KK: 
+      enable: true
+      autoban: false
+
+    KM: 
+      enable: true
+      autoban: false
+
+    KR: 
+      enable: true
+      autoban: false
+
+    KU: 
+      enable: true
+      autoban: false
+
+    # Command kick is working when player reach max violation
     commands:
-      5: 'terminator notify %player% might be using combat hacks (KillAura)'
-      10: 'terminator notify %player% is using combat hacks (KillAura) #2'
-      15: 'terminator delay 2 terminator kick %player% KillAura'
-  click:
-    # Enable this check?
-    enable: true
-
-    # What should the player's highest CPS be? When the player exceeds this cps, it will be detected        
-    max_cps: 15
-
-    check_per_second:        
-      swing: 15
-      air: 25 
-
-    # Map of violation levels to command
-    commands:
-      5: 'terminator notify %player% might be using combat hacks (AutoClick)'
-      10: 'terminator notify %player% is using combat hacks (AutoClick) #2'
-      15: 'terminator delay 2 terminator kick %player% AutoClick'
+      - 'terminator delay 2 terminator kick %player% AutoClick/Etc.'
   interact:
     # Enable this check?
     enable: true
 
-    # Limit the player can reach the block
-    reach: 6
+    RB: 
+      enable: true
+      autoban: false
 
-    # Pitch limits to which players can set blocks
-    limit_pitch: 35
+    SCA: 
+      enable: true
+      autoban: false
 
-    check_per_second:
-      min_pitch: 32
-      max_pitch: 100
+    SCB: 
+      enable: true
+      autoban: false
 
-    # Map of violation levels to command
+    SCC: 
+      enable: true
+      autoban: false
+
+    # Command kick is working when player reach max violation
     commands:
-      5: 'terminator notify %player% might be using interaction hacks (ReachBlock/Scaffold/Etc.)'
-      10: 'terminator notify %player% is using interaction hacks (ReachBlock/Scaffold/Etc.) #2'
-      15: 'terminator delay 2 terminator kick %player% ReachBlock/Scaffold/Etc.'
+      - 'terminator delay 2 terminator kick %player% ReachBlock/Scaffold/etc.'
   move:
     # Enable this check?
     enable: true
 
-    fly_move_speed: 87       
-    normal_move_speed: 60
+    SB: 
+      enable: true
+      autoban: false
 
-    check_per_second:
-        send_motion: 25
-        send_movement: 5
+    SC: 
+      enable: true
+      autoban: false
     
-    # Map of violation levels to command
+    # Command kick is working when player reach max violation
     commands:
-      5: 'terminator notify %player% might be using movement hacks (Fly/Speed/Etc.)'
-      10: 'terminator notify %player% is using movement hacks (Fly/Speed/Etc.) #2'
-      15: 'terminator delay 2 terminator kick %player% Fly/Speed/Etc.'
+      - 'terminator delay 2 terminator kick %player% FlySpeed/Speed/Etc.'
   inventory:
     # Enable this check?
     enable: true
 
-    time_transaction_per_item: 2.15
+    IVCA: 
+      enable: true
+      autoban: false
 
-    check_per_second:
-      pick_items: 20
-      
-    check_per_millisecond:
-      pick_items: 1
-    
-    # Map of violation levels to command
+    IVCB: 
+      enable: true
+      autoban: false
+
+    IVCC: 
+      enable: true
+      autoban: false
+
+    IVCD: 
+      enable: true
+      autoban: false
+
+    # Command kick is working when player reach max violation
     commands:
-      3: 'terminator notify %player% might be using inventory hacks (ChestAura/ChestStealer/Etc.)'
-      4: 'terminator notify %player% is using inventory hacks (ChestAura/ChestStealer/Etc.) #2'
-      5: 'terminator delay 2 terminator kick %player% ChestAura/ChestStealer/Etc.'
+      - 'terminator delay 2 terminator kick %player% ChestAura/ChestStealer/etc.'
   fly:
     # Enable this check?
     enable: true
-    
-    check_per_second:
-      toggle_jump_on_ground: 19
-      toggle_flight_on_ground: 4   
-      toggle_flight_in_the_air: 2
-      toggle_up_in_the_air: 1
-      hold_move_in_the_air: 2
-      in_the_air: 10
 
-    # Map of violation levels to command
+    FA: 
+      enable: true
+      autoban: false
+
+    FB: 
+      enable: true
+      autoban: false
+
+    FC: 
+      enable: true
+      autoban: false
+
+    FD: 
+      enable: true
+      autoban: false
+
+    FE: 
+      enable: true
+      autoban: false
+
+    FF: 
+      enable: true
+      autoban: false
+
+    FG: 
+      enable: true
+      autoban: false
+
+    FH: 
+      enable: true
+      autoban: false
+
+    FI: 
+      enable: true
+      autoban: false
+
+    # Command kick is working when player reach max violation
     commands:
-      5: 'terminator notify %player% might be using fly hacks (Fly/AirJump/Etc.)'
-      10: 'terminator notify %player% is using fly hacks (Fly/AirJump/Etc.) #2'
-      15: 'terminator delay 2 terminator kick %player% Fly/AirJump/Etc.'
+      - 'terminator delay 2 terminator kick %player% Fly/AirJump/Glide/Etc.'
   badpackets:
     # Enable this check?
     enable: true
 
-    # Timer check settings
-    timer:
-      delay: 24
-      min_send_packets: 25
-      max_send_packets: 20
+    BKA: 
+      enable: true
+      autoban: false
+
+    BKB: 
+      enable: true
+      autoban: false
+
+    BKC: 
+      enable: true
+      autoban: false
+
+    PNKA: 
+      enable: true
+      autoban: false
+
+    PNKB: 
+      enable: true
+      autoban: false
+
+    LCT: 
+      enable: true
+      autoban: false
+
+    UPLOC: 
+      enable: true
+      autoban: false
+
+    TA: 
+      enable: true
+      autoban: false
     
-    # Scaffold settings
-    scaffold:
-      min_update_place_block: 6 
-    
-    # Map of violation levels to command
+    # Command kick is working when player reach max violation
     commands:
-      10: 'terminator notify %player% is sending unusual packets to server (BadPackets) #1'
-      15: 'terminator notify %player% is sending unusual packets to server (BadPackets) #2'
-      20: 'terminator delay 2 terminator kick %player% Sending Unusual Packets'
+      - 'terminator delay 2 terminator kick %player% Sending Unusual Packets'
 ...
